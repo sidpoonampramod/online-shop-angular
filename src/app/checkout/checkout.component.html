@@ -1,0 +1,34 @@
+<p>checkout works!</p>
+<div class="container mt-4">
+  <h2>Checkout</h2>
+  <form (ngSubmit)="placeOrder()" #checkoutForm="ngForm">
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" class="form-control" required [(ngModel)]="checkoutData.name" name="name" />
+    </div>
+
+    <div class="mb-3">
+      <label>Address</label>
+      <textarea class="form-control" required [(ngModel)]="checkoutData.address" name="address"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Phone</label>
+      <input type="text" class="form-control" required [(ngModel)]="checkoutData.phone" name="phone" />
+    </div>
+
+    <div class="mb-3">
+      <label>Payment Mode</label>
+      <select class="form-control" [(ngModel)]="checkoutData.payment" name="payment" required>
+        <option value="COD">Cash On Delivery</option>
+        <option value="Online">Online Payment</option>
+      </select>
+    </div>
+
+    <button class="btn btn-success">Place Order</button>
+  </form>
+
+  <div *ngIf="orderPlaced" class="alert alert-success mt-3">
+    ✅ Order placed successfully!
+  </div>
+</div>

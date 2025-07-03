@@ -1,0 +1,39 @@
+<p>cart works!</p>
+<div class="container mt-4" *ngIf="cartItems.length > 0; else emptyCart">
+    <h3>Your Cart</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartItems">
+                <td>{{ item.title }}</td>
+                <td><img [src]="item.image" height="50" /></td>
+                <td>₹ {{ item.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>₹ {{ item.price * item.quantity }}</td>
+                <td><button class="btn btn-danger btn-sm" (click)="removeItem(item.id)">Remove</button></td>
+                <td>
+                    <button class="btn btn-sm btn-secondary" (click)="decreaseQty(item.id)">−</button>
+                    <span class="mx-2">{{ item.quantity }}</span>
+                    <button class="btn btn-sm btn-secondary" (click)="increaseQty(item.id)">+</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>Total: ₹ {{ getTotal() }}</h4>
+
+</div>
+
+<ng-template #emptyCart>
+    <div class="alert alert-warning">
+        Your cart is empty.so
+    </div>
+</ng-template>
