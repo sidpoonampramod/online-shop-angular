@@ -1,0 +1,14 @@
+@media screen and (max-width: 768px) {
+  table {
+    font-size: 10px;
+  }
+
+  th, td {
+    white-space: nowrap;
+  }
+
+  img {
+    max-width: 60px;
+    height: auto;
+  }
+}

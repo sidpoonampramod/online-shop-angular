@@ -1,6 +1,7 @@
 <p>cart works!</p>
 <div class="container mt-4" *ngIf="cartItems.length > 0; else emptyCart">
     <h3>Your Cart</h3>
+    <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -31,7 +32,7 @@
     <h4>Total: ₹ {{ getTotal() }}</h4>
 
 </div>
-
+</div>
 <ng-template #emptyCart>
     <div class="alert alert-warning">
         Your cart is empty.so
