@@ -13,7 +13,9 @@ export class CartComponent {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItems();
+   
+    this.cartService.loadCartFromLocalStorage();
+     this.cartItems = this.cartService.getCartItems();
   }
 
   removeItem(id: number) {
