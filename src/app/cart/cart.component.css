@@ -1,14 +1,13 @@
-@media screen and (max-width: 768px) {
-  table {
-    font-size: 10px;
-  }
-
-  th, td {
-    white-space: nowrap;
-  }
-
-  img {
-    max-width: 60px;
-    height: auto;
-  }
+.cart-card {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
 }
+.card-img-top {
+  max-height: 150px;
+  object-fit: contain;
+}
+
+
+

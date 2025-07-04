@@ -1,40 +1,67 @@
-<p>cart works!</p>
-<div class="container mt-4" *ngIf="cartItems.length > 0; else emptyCart">
-    <h3>Your Cart</h3>
-    <div class="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Image</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Total</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of cartItems">
-                <td>{{ item.title }}</td>
-                <td><img [src]="item.image" height="50" /></td>
-                <td>₹ {{ item.price }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>₹ {{ item.price * item.quantity }}</td>
-                <td><button class="btn btn-danger btn-sm" (click)="removeItem(item.id)">Remove</button></td>
-                <td>
-                    <button class="btn btn-sm btn-secondary" (click)="decreaseQty(item.id)">−</button>
-                    <span class="mx-2">{{ item.quantity }}</span>
-                    <button class="btn btn-sm btn-secondary" (click)="increaseQty(item.id)">+</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <h4>Total: ₹ {{ getTotal() }}</h4>
+<!-- <p>cart works!</p>
+<div class="container mt-4" *ngIf="cartItems.length > 0; else emptyCart"> -->
 
+
+<div class="container mt-3">
+    <h3 class="text-center">Your Cart</h3>
+
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let item of cartItems">
+            <div class="card h-100 shadow-sm">
+                <img [src]="item.image" class="card-img-top p-3" alt="{{ item.title }}"
+                    style="max-height: 150px; object-fit: contain;" />
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h6 class="card-title">{{ item.title }}</h6>
+                    <p class="card-text">Price: ₹ {{ item.price }}</p>
+                    <p class="card-text">Qty: {{ item.quantity }}</p>
+                    <p class="card-text fw-bold">Total: ₹ {{ item.price * item.quantity }}</p>
+
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-sm btn-outline-danger" (click)="decreaseQty(item.id)">−</button>
+                        <button class="btn btn-sm btn-outline-success" (click)="increaseQty(item.id)">+</button>
+                        <button class="btn btn-sm btn-outline-secondary" (click)="removeItem(item.id)">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<!-- <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cartItems">
+                    <td>{{ item.title }}</td>
+                    <td><img [src]="item.image" height="50" /></td>
+                    <td>₹ {{ item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹ {{ item.price * item.quantity }}</td>
+                    <td>
+                        ✅ Show buttons properly
+                        <button (click)="decreaseQty(item.id)" class="btn btn-sm btn-danger">-</button>
+                        <button (click)="increaseQty(item.id)" class="btn btn-sm btn-success">+</button>
+                        <button (click)="removeItem(item.id)" class="btn btn-sm btn-outline-secondary">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Total: ₹ {{ getTotal() }}</h4>
+
+    </div>
 </div>
 <ng-template #emptyCart>
     <div class="alert alert-warning">
         Your cart is empty.so
     </div>
-</ng-template>
+</ng-template> -->
